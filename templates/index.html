@@ -1,15 +1,18 @@
 <!DOCTYPE html>
+<!-- Page utilisant Jinja pour afficher le résultat fourni par Flask et JavaScript pour gérer la saisie. -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flask Calculator</title>
+<!-- Le POST transmet le champ « display » à Flask pour effectuer le calcul côté serveur. -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="calculator">
    <h1>Flask Calculator</h1>
    <form method="POST">
+      <!-- Le champ est en lecture seule pour permettre la saisie uniquement avec les boutons de la calculatrice. -->
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
       <div class="buttons">
@@ -37,11 +40,21 @@
 </div>
 
 <script>
+   /**
+    * Complète l'expression avec la valeur du bouton cliqué.
+    * @param {string} value - Chiffre ou opérateur à ajouter.
+    * @returns {void} Aucun retour. Met à jour le champ « display ».
+    */
    function appendToDisplay(value) {
       const display = document.getElementById('display');
       display.value += value;
    }
 
+   /**
+    * Efface le contenu du champ « display » pour recommencer la saisie.
+    * Aucun paramètre.
+    * @returns {void} Aucun retour. L'affichage devient vide.
+    */
    function clearDisplay() {
       document.getElementById('display').value = '';
    }
