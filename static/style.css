@@ -1,3 +1,4 @@
+/* Présentation de la calculatrice définie dans templates/index.html. */
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
@@ -8,6 +9,7 @@ body {
    margin: 0;
 }
 
+/* Limite la largeur pour garder les touches regroupées sur les grands écrans. */
 .calculator {
    width: 100%;
    max-width: 600px;
@@ -37,6 +39,7 @@ h1 {
    color: #fff;
 }
 
+/* Les quatres colonnes conservent un opérateur à droite de chaque rangée. */
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
@@ -59,6 +62,7 @@ h1 {
    background-color: #555;
 }
 
+/* Distingue les actions de calcul des touches numériques. */
 .operator {
    background-color: #ff9500;
 }
