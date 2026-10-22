@@ -21,11 +21,10 @@ def subtract(a,b):
         b (float): Second opérande fourni par le serveur.
     
     Returns:
-        float: Différence b - a dans l'implémentation de base.
-            Le résultat attendu pour la calculatrice est a - b.
+        float: Différence a - b.
     """
 
-    return b - a
+    return a - b
 
 def multiply(a,b):
     """Effectue la multiplication entre deux nombres.
