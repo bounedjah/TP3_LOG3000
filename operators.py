@@ -34,7 +34,7 @@ def multiply(a,b):
         b (float): Second opérande fourni par le serveur.
     
     Returns:
-        float or complex: Puissance a ** b dans l'implémentation de base.
+        float or complex:  a * b dans l'implémentation de base.
             Le résultat attendu pour la calculatrice est le produit a * b.
     
     Raises:
@@ -42,7 +42,7 @@ def multiply(a,b):
         OverflowError: Si la puissance dépasse la capacité des flottants.
     """
 
-    return a ** b
+    return a * b
 
 def divide(a,b):
     """Effectue la division entre deux nombres.
