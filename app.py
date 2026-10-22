@@ -18,8 +18,8 @@ def calculate(expr: str):
 
     Args: 
         expr (str): Expression de la forme « a op b », op parmi +, -, *, /. 
-            Les espaces sont ignorés. Le code actuel considère aussi le signe 
-            d'un nombre négatif comme un opérateur.
+            Les espaces sont ignorés. Chaque nombre peut être négatif
+            (ex. « -5+3 », « 3*-2 »).
 
     Returns:
         float: Résultat du calcul effectué par la fonction correspondant à 
@@ -44,6 +44,9 @@ def calculate(expr: str):
     # Une seule opération est autorisée, car les priorités de calcul ne sont pas gérées.
     for i, ch in enumerate(s):
         if ch in OPS:
+            # Un - en début d'expression ou juste après l'opérateur est le signe d'un nombre négatif.
+            if ch == '-' and (i == 0 or s[i-1] in OPS):
+                continue
             if op_pos != -1:
                 raise ValueError("only one operator is allowed")
             op_pos = i
