@@ -74,8 +74,12 @@ class TestCalculatorButtons(unittest.TestCase):
         """Entrée : page rendue par GET /. Sortie attendue : étiquette == valeur insérée.
 
         Pour chaque appendToDisplay('x'), le texte visible du bouton doit
-        être exactement « x » ; sinon l'utilisateur ne sait pas ce qu'il tape.
+        être exactement « x » (sauf '*' -> « × » et '/' -> « ÷ ») ; sinon
+        l'utilisateur ne sait pas ce qu'il tape.
         """
+
+        # La multiplication et la division insèrent '*' et '/' mais affichent × et ÷.
+        expected_labels = {"*": "×", "/": "÷"}
 
         app.config["TESTING"] = True
         html = app.test_client().get("/").get_data(as_text=True)
@@ -83,7 +87,7 @@ class TestCalculatorButtons(unittest.TestCase):
         self.assertEqual(len(buttons), 14, "14 boutons de saisie attendus (10 chiffres, 4 opérateurs)")
         for value, label in buttons:
             with self.subTest(button=value):
-                self.assertEqual(label.strip(), value)
+                self.assertEqual(label.strip(), expected_labels.get(value, value))
 
 if __name__ == "__main__":
     unittest.main()
