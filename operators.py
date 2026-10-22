@@ -52,11 +52,11 @@ def divide(a,b):
         b (float): Diviseur non nul fourni par le serveur.
     
     Returns:
-        float: Quotient arrondi vers moins l'infini (a // b) dans
+        float: Quotient arrondi vers moins l'infini (a / b) dans
             l'implémentation de base. Le résultat attendu est a / b.
     
     Raises:
         ZeroDivisionError: Si b est nul.
     """
         
-    return a // b
+    return a / b
